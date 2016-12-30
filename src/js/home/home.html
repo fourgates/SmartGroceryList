@@ -1,0 +1,33 @@
+ <div class="home-page">
+
+  <!-- Splash banner that only shows when not logged in -->
+  <div class="banner" show-authed="false">
+    <div class="container">
+      <h1 class="logo-font" ng-bind="::$ctrl.appName | lowercase"></h1>
+      <p>A place to share your somthing else.</p>
+    </div>
+  </div>
+
+  <div class="container page">
+    <div class="row">
+
+
+      <!-- Main view - contains tabs & article list -->
+      <div class="col-md-9">
+		<h1>Main View</h1>
+		<video width="320" height="240" controls>
+		  <source src="http://www.w3schools.com/tags/movie.mp4#t=4" type="video/mp4">
+		  Your browser does not support the video tag.
+		</video>
+      </div>
+
+      <!-- Sidebar where popular tags are listed -->
+      <div class="col-md-3">
+		<h1>Sidebar</h1>
+      </div>
+
+      <!-- End the row & container divs -->
+    </div>
+  </div>
+
+</div>
