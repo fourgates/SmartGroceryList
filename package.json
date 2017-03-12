@@ -1,8 +1,8 @@
 {
-  "name": "conduit-angularjs",
+  "name": "SmartGroceryList",
   "version": "1.0.0",
-  "description": "Angular frontend for Conduit",
-  "author": "Thinkster",
+  "description": "A way to make grocery shopping quicker!",
+  "author": "FourGates",
   "license": "MIT",
   "dependencies": {
     "angular": "^1.5.0-rc.2",
