@@ -10,24 +10,21 @@
 
   <div class="container page">
     <div class="row">
-
-
-      <!-- Main view - contains tabs & article list -->
-      <div class="col-md-9">
-		<h1>Main View</h1>
-		<video width="320" height="240" controls>
-		  <source src="http://www.w3schools.com/tags/movie.mp4#t=4" type="video/mp4">
-		  Your browser does not support the video tag.
-		</video>
-      </div>
-
-      <!-- Sidebar where popular tags are listed -->
-      <div class="col-md-3">
-		<h1>Sidebar</h1>
-      </div>
-
-      <!-- End the row & container divs -->
+      <table style="width:50%">
+        <tr>
+          <th>Aile</th>
+          <th>Item</th> 
+        </tr>
+        <tr ng-repeat="item in $ctrl.getList() | orderBy: '+aile'">
+          <td>
+            <input type="text" name="fname" ng-model="item.aile">
+          </td>
+          <td>
+            <input type="text" name="fname" ng-model="item.item">
+          </td> 
+        </tr>
+      </table>
+      <button ng-click="$ctrl.addItem()">Add Item</button>
     </div>
   </div>
-
 </div>
