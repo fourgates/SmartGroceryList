@@ -18,6 +18,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.5.3",
     "gulp-util": "^3.0.7",
+    "jquery": "^3.1.1",
     "marked": "^0.3.6",
     "merge-stream": "^1.0.0",
     "selectize": "^0.12.4",
