@@ -15,7 +15,7 @@
           <th>Aile</th>
           <th>Item</th> 
         </tr>
-        <tr ng-repeat="item in $ctrl.getList() | orderBy: '+aile'">
+        <tr ng-repeat="item in $ctrl.getList() | orderBy: '-aile'">
           <td>
             <input type="text" name="fname" ng-model="item.aile">
           </td>

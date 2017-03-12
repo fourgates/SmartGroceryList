@@ -15,7 +15,7 @@ class HomeCtrl {
 
   addItem(){
   	this.list.push({
-    	aile:5,
+    	aile: null,
     	item: "Milk"
     })
   }
