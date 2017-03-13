@@ -1,4 +1,8 @@
+import jQuery from 'jquery'
 import angular from 'angular';
+
+// vender
+import bootstrap from 'angular-ui-bootstrap';
 
 // Import our app config files
 import constants  from './config/app.constants';
@@ -14,6 +18,7 @@ import './home';
 import './services';
 import './auth';
 
+
 // Create and bootstrap application
 const requires = [
   'ui.router',
@@ -23,10 +28,12 @@ const requires = [
   'app.home',
   'app.services',
   'app.auth',
+  'ui.bootstrap'
 ];
 
 // Mount on window for testing
 window.app = angular.module('app', requires);
+window.$ = window.jQuery = jQuery;
 
 angular.module('app').constant('AppConstants', constants);
 
