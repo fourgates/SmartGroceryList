@@ -14,7 +14,7 @@ import selectize from 'selectize';
 // 7. build out hardware to be able to clip phone to a shopping cart for quick use 
 // 8. 
 class HomeCtrl {
-  constructor(AppConstants, $scope) {
+  constructor(AppConstants, $scope, $timeout) {
     'ngInject';
     this.list = [{
     	aile:5,
@@ -23,9 +23,12 @@ class HomeCtrl {
     this.appName = AppConstants.appName;
 
     console.log('test', $('select'));
-    $('select').selectize({
-      options:[]
-    });
+    this._$timeout = $timeout;
+    $timeout(function(){
+        $('select').selectize({
+          options:[]
+        });
+    })
   }
 
   getList(){
@@ -36,6 +39,11 @@ class HomeCtrl {
   	this.list.push({
     	aile: null,
     	item: "Milk"
+    })
+    this._$timeout(function(){
+        $('select').selectize({
+          options:[]
+        });
     })
   }
 }
