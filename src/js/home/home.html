@@ -27,6 +27,9 @@
               <option value="4">Deli</option>
             </select>
           </td> 
+          <td>
+            <button ng-click="$ctrl.removeItem(item)">Remove</button>
+          </td>
         </tr>
       </table>
       <button ng-click="$ctrl.addItem()">Add Item</button>

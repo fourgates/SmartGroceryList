@@ -14,6 +14,7 @@ import selectize from 'selectize';
 // 7. build out hardware to be able to clip phone to a shopping cart for quick use 
 // 8. 
 class HomeCtrl {
+
   constructor(AppConstants, $scope, $timeout) {
     'ngInject';
     this.list = [{
@@ -22,15 +23,27 @@ class HomeCtrl {
     }]
     this.appName = AppConstants.appName;
 
-    console.log('test', $('select'));
     this._$timeout = $timeout;
     $timeout(function(){
         $('select').selectize({
           options:[]
         });
     })
+
+    $scope.$watchCollection(() => this.list, this.coolNumberChanged());
   }
 
+  coolNumberChanged (newValue, oldValue) {
+      return () => {
+          if(this.list.length == 0){
+            this.list.push({
+              aile:5,
+              item: "Milk"
+            })
+          }
+          console.log('change', this.list);
+      };
+  }
   getList(){
     return this.list;
   }
@@ -45,6 +58,12 @@ class HomeCtrl {
           options:[]
         });
     })
+  }
+
+  removeItem(item){
+    console.log('item', item);
+    var index = this.list.indexOf(item);
+    this.list.splice(index,1);
   }
 }
 
