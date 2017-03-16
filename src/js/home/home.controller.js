@@ -17,37 +17,37 @@ class HomeCtrl {
 
   constructor(AppConstants, $scope, $timeout) {
     'ngInject';
-    this.list = [{
-    	aile:5,
-    	item: "Milk"
-    }]
+    this.list = []
     this.appName = AppConstants.appName;
-
     this._$timeout = $timeout;
-    $timeout(function(){
-        $('select').selectize({
-          options:[]
-        });
-    })
-
-    $scope.$watchCollection(() => this.list, this.coolNumberChanged());
+    // watch the shopping list
+    $scope.$watchCollection(() => this.list, this.onListChange());
   }
 
-  coolNumberChanged (newValue, oldValue) {
+  // never let the list be empty 
+  onListChange (newValue, oldValue) {
+      // we need () => to get the right scope
       return () => {
           if(this.list.length == 0){
             this.list.push({
-              aile:5,
-              item: "Milk"
+              item: ""
             })
           }
+          // init selectize
+          $timeout(function(){
+              $('select').selectize({
+                options:[]
+              });
+          })
           console.log('change', this.list);
       };
   }
+  // getter
   getList(){
     return this.list;
   }
 
+  //add an item to this list
   addItem(){
   	this.list.push({
     	aile: null,
@@ -60,8 +60,8 @@ class HomeCtrl {
     })
   }
 
+  // removed a selected item
   removeItem(item){
-    console.log('item', item);
     var index = this.list.indexOf(item);
     this.list.splice(index,1);
   }
