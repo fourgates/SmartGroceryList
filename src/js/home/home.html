@@ -7,18 +7,24 @@
       <p>A place to share your somthing else.</p>
     </div>
   </div>
+
   <div class="container page">
     <div class="row">
       <table style="width:50%">
         <tr>
+          <th></th>
           <th>Aile</th>
           <th>Item</th> 
         </tr>
-        <tr ng-repeat="item in $ctrl.getList() | orderBy: '-aile'">
+        <tr ng-repeat="item in $ctrl.getList() | orderBy: '-aile'" ng-class="{strikeout: item.strike}">
+          
           <td>
+            <input type="checkbox" ng-model="item.strike"></td>
+          </td>
+          <td stype="width:50%">
             <input type="text" name="fname" ng-model="item.aile">
           </td>
-          <td>
+          <td stype="width:50%">
             <select>
               <option value="0">Milk</option>
               <option value="1">Butter</option>
@@ -27,12 +33,12 @@
               <option value="4">Deli</option>
             </select>
           </td> 
-          <td>
+          <td ng-if="item.strike">
             <button ng-click="$ctrl.removeItem(item)">Remove</button>
           </td>
         </tr>
       </table>
-      <button ng-click="$ctrl.addItem()">Add Item</button>
     </div>
+    <button ng-click="$ctrl.addItem()">Add Item</button>
   </div>
 </div>
