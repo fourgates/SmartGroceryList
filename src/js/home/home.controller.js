@@ -34,7 +34,7 @@ class HomeCtrl {
             })
           }
           // init selectize
-          $timeout(function(){
+          this._$timeout(function(){
               $('select').selectize({
                 options:[]
               });
