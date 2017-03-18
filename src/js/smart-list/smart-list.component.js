@@ -31,6 +31,7 @@ import selectize from 'selectize';
 //      d. searchList
 // 15. move date picker to its own component
 // 16. CRUD list operations
+// 17. Need to fix selectize, to be able to load items that are already selected
 class SmartListCtrl {
 
   constructor(AppConstants, $scope, $timeout) {
@@ -52,7 +53,6 @@ class SmartListCtrl {
       };
 
       // shopping list
-      console.log('this,currentList', this.currentList);
       $scope.$watchCollection(() => this.currentList.list, this.onListChange());
     }
   }
@@ -77,12 +77,7 @@ class SmartListCtrl {
               item: ""
             })
           }
-          // init selectize
-          this._$timeout(function(){
-              $('select').selectize({
-                options:[]
-              });
-          })
+          this.initSelectize();
       };
   }
   // getter
@@ -93,16 +88,18 @@ class SmartListCtrl {
   //add an item to this list
   addItem(){
   	this.currentList.list.push({
-    	aile: null,
-    	item: "Milk"
+    	aile: null
     })
+    this.initSelectize();
+  }
+
+  initSelectize(){
     this._$timeout(function(){
         $('select').selectize({
           options:[]
         });
     })
   }
-
   // removed a selected item
   removeItem(item){
     var index = this.currentList.list.indexOf(item);

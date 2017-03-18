@@ -37,10 +37,13 @@ class HomeCtrl {
 	  	}
   	];
   }
+
+  // load a list of smart lists
   getList(){
   	return this.results;
   }
 
+  // fnc called when user clicks a list
   loadList(list){
   	this.currentList = list;
   }
