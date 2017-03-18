@@ -32,30 +32,29 @@ import selectize from 'selectize';
 // 15. move date picker to its own component
 // 16. CRUD list operations
 class SmartListCtrl {
+
   constructor(AppConstants, $scope, $timeout) {
     'ngInject';
-        // app
-    this.appName = AppConstants.appName;
-    this._$timeout = $timeout;
 
-    // date picker
-    this.isOpen = false;
-    this.dateOptions = {
-      dateDisabled: this.disabled,
-      formatYear: 'yy',
-      maxDate: new Date(2020, 5, 22),
-      minDate: new Date(),
-      startingDay: 1
-    };
+    this.$onInit = function(){
+      // app
+      this.appName = AppConstants.appName;
+      this._$timeout = $timeout;
 
-    // shopping list
-    this.currentList = {
-      listId: null,
-      list: [],
-      date: new Date()
+      // date picker
+      this.isOpen = false;
+      this.dateOptions = {
+        dateDisabled: this.disabled,
+        formatYear: 'yy',
+        maxDate: new Date(2020, 5, 22),
+        minDate: new Date(),
+        startingDay: 1
+      };
+
+      // shopping list
+      console.log('this,currentList', this.currentList);
+      $scope.$watchCollection(() => this.currentList.list, this.onListChange());
     }
-    $scope.$watchCollection(() => this.currentList.list, this.onListChange());
-
   }
     // date picker fnc's
   disabled(data) {
@@ -113,7 +112,10 @@ class SmartListCtrl {
 
 let SmartList = {
   controller: SmartListCtrl,
-  templateUrl: 'smart-list/smart-list.html'
+  templateUrl: 'smart-list/smart-list.html',
+  bindings:{
+    currentList: '='
+  },
 };
 
 export default SmartList;
