@@ -15,8 +15,21 @@ import bootstrap from 'angular-ui-bootstrap';
 // 7. build out hardware to be able to clip phone to a shopping cart for quick use 
 // 8. add a date picker to keep track of shopping list dat
 // 9. need to create a data structure to store weekly lists (needed to populate autocomplete from previous week(s))
-//     date
-//     list of items
+//     a. date
+//     b. list of items
+// 10. gulp needs to inject css
+// 11. abstract product to grocery-list component
+// 12. need a search / list component
+//      a. date filters
+//      b. product filters
+//      c. recipe filters
+// 13. create a staples component that agregates common products from the past x weeks
+//      a. if less than 5 lists exist return anything that occurs more than once
+// 14. create a shopping list service
+//      a. getList
+//      b. saveList
+//      c. getStaples
+//      d. searchList
 class HomeCtrl {
 
   constructor(AppConstants, $scope, $timeout, uibDateParser) {
