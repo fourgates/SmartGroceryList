@@ -30,6 +30,7 @@ import bootstrap from 'angular-ui-bootstrap';
 //      b. saveList
 //      c. getStaples
 //      d. searchList
+// 15. move date picker to its own component
 class HomeCtrl {
 
   constructor(AppConstants, $scope, $timeout, uibDateParser) {
@@ -40,9 +41,7 @@ class HomeCtrl {
     this._$timeout = $timeout;
 
     // date picker
-    this.date = new Date();
     this.isOpen = false;
-
     this.dateOptions = {
       dateDisabled: this.disabled,
       formatYear: 'yy',
@@ -51,9 +50,10 @@ class HomeCtrl {
       startingDay: 1
     };
 
-    // watch the shopping list
+    // shopping list
     this.currentList = {
-      list: []
+      list: [],
+      date: new Date()
     }
     $scope.$watchCollection(() => this.currentList.list, this.onListChange());
   }
@@ -73,6 +73,7 @@ class HomeCtrl {
   onListChange (newValue, oldValue) {
       // we need () => to get the right scope
       return () => {
+          // if list is empty, add an item
           if(this.currentList.list.length == 0){
             this.currentList.list.push({
               item: ""
@@ -84,7 +85,6 @@ class HomeCtrl {
                 options:[]
               });
           })
-          console.log('change', this.currentList.list);
       };
   }
   // getter
