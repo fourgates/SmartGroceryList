@@ -52,14 +52,16 @@ class HomeCtrl {
     };
 
     // watch the shopping list
-    this.list = []
-    $scope.$watchCollection(() => this.list, this.onListChange());
+    this.currentList = {
+      list: []
+    }
+    $scope.$watchCollection(() => this.currentList.list, this.onListChange());
   }
 
   // date picker fnc's
   disabled(data) {
     var date = data.date,
-      mode = data.mode;
+    mode = data.mode;
     return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
   }
 
@@ -71,8 +73,8 @@ class HomeCtrl {
   onListChange (newValue, oldValue) {
       // we need () => to get the right scope
       return () => {
-          if(this.list.length == 0){
-            this.list.push({
+          if(this.currentList.list.length == 0){
+            this.currentList.list.push({
               item: ""
             })
           }
@@ -82,17 +84,17 @@ class HomeCtrl {
                 options:[]
               });
           })
-          console.log('change', this.list);
+          console.log('change', this.currentList.list);
       };
   }
   // getter
   getList(){
-    return this.list;
+    return this.currentList.list;
   }
 
   //add an item to this list
   addItem(){
-  	this.list.push({
+  	this.currentList.list.push({
     	aile: null,
     	item: "Milk"
     })
@@ -105,8 +107,8 @@ class HomeCtrl {
 
   // removed a selected item
   removeItem(item){
-    var index = this.list.indexOf(item);
-    this.list.splice(index,1);
+    var index = this.currentList.list.indexOf(item);
+    this.currentList.list.splice(index,1);
   }
 }
 
