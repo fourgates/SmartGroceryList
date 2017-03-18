@@ -13,11 +13,11 @@ import selectize from 'selectize';
 //        any milk is on sale 
 // 7. build out hardware to be able to clip phone to a shopping cart for quick use 
 // 8. add a date picker to keep track of shopping list dat
-// 9. need to create a data structure to store weekly lists (needed to populate autocomplete from previous week(s))
+// -9.- need to create a data structure to store weekly lists (needed to populate autocomplete from previous week(s))
 //     a. date
 //     b. list of items
 // 10. gulp needs to inject css
-// 11. abstract product to grocery-list component
+// -11.- abstract product to grocery-list component
 // 12. need a search / list component
 //      a. date filters
 //      b. product filters
