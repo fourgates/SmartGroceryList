@@ -16,7 +16,7 @@
           <th>Aile</th>
           <th>Item</th> 
         </tr>
-        <tr ng-repeat="item in $ctrl.getList() | orderBy: '-aile'" ng-class="{strikeout: item.strike}">
+        <tr ng-repeat="item in $ctrl.getList() | orderBy: 'aile'" ng-class="{strikeout: item.strike}">
           
           <td>
             <input type="checkbox" ng-model="item.strike"></td>
@@ -40,5 +40,26 @@
       </table>
     </div>
     <button ng-click="$ctrl.addItem()">Add Item</button>
+    <div class="row">
+      <div class="col-md-6">
+        <p class="input-group">
+          <label>Date: </label>
+          <input 
+            type="text" 
+            class="form-control" 
+            uib-datepicker-popup="dd-MMMM-yyyy" 
+            ng-model="date" 
+            is-open="$ctrl.isOpen" 
+            datepicker-options="$ctrl.dateOptions" 
+            close-text="Close" 
+            alt-input-formats="altInputFormats" />
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="$ctrl.openDatePicker()">
+              <i class="glyphicon glyphicon-calendar"></i>
+            </button>
+          </span>
+        </p>
+      </div>
+    </div>
   </div>
 </div>
