@@ -8,5 +8,23 @@
     </div>
   </div>
 
-  <smart-list></smart-list>
+  <smart-list current-list="$ctrl.currentList" ng-if="$ctrl.currentList"></smart-list>
+  <div class="container page">
+    <div class="row">
+      <table style="width:50%">
+        <tr>
+          <th>Date</th>
+          <th># of Items</th>
+        </tr>
+        <tr ng-repeat="item in $ctrl.getList() | orderBy: 'aile'" ng-click="$ctrl.loadList(item)">
+          <td>
+            {{item.date}}
+          </td>
+          <td>
+            {{item.numberOfItem}}
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </div>
