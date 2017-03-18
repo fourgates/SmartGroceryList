@@ -17,7 +17,7 @@ import './components';
 import './home';
 import './services';
 import './auth';
-
+import './smart-list'
 
 // Create and bootstrap application
 const requires = [
@@ -28,6 +28,7 @@ const requires = [
   'app.home',
   'app.services',
   'app.auth',
+  'app.smart-list',
   'ui.bootstrap'
 ];
 
