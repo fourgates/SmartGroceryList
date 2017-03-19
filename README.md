@@ -14,7 +14,7 @@ A way to make grocery shopping quicker!
 * gulp needs to inject css
 
 # TODO
-* create a staples component that agregates common products from the past x weeks
+* create a staples component that aggregates common products from the past x weeks
   * if less than 5 lists exist return anything that occurs more than once
 * create a shopping list service
   * getList
@@ -27,11 +27,11 @@ A way to make grocery shopping quicker!
 	* date filters
    *  product filters
    *   recipe filters
-* need to create a data structure to store weekly lists (needed to populate autocomplete from previous week(s))
+* each row should have an autocomplete that gets populated from previous lists
+* ~need to create a data structure to store weekly lists (needed to populate autocomplete from previous week(s))~
     * date
     * list of items
-* add a date picker to keep track of shopping list dates
-* each row should have an autocomplete that gets populated from previous lists
+* ~add a date picker to keep track of shopping list dates~
 * ~add checkbox to each row and strike through if checked~
 * ~if checkbox is marked display a delete button~
 * ~abstract product to grocery-list component~
